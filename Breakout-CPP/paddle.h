@@ -5,19 +5,19 @@
 #include "vec2.h"
 
 class Paddle {
-public:
-	static const int PADDLE_WIDTH = 90;
-	static const int PADDLE_HEIGHT = 15;
+	public:
+		static const int PADDLE_WIDTH = 90;
+		static const int PADDLE_HEIGHT = 15;
 
-	Paddle();
+		Paddle();
 
-	void Draw(SDL_Renderer* renderer);
+		void Draw(SDL_Renderer* renderer);
 
-	void SetPaddle(int windowWidth, int windowHeight);
+		void SetPaddle(int windowWidth, int windowHeight);
 
-	Vec2 position;
+		Vec2 position;
 
-	SDL_FRect rect{};
+		SDL_FRect rect{};
 };
 
 #endif
