@@ -21,7 +21,12 @@ int main(int argc, char* argv[]) {
 
 	SDL_Log("Game started...");
 
+	uint64_t lastTime = SDL_GetTicks();
+
 	while (running) {
+
+		uint64_t currentTime = SDL_GetTicks();
+		float deltaTime = (currentTime - lastTime) / 1000.0;
 
 		SDL_Event event;
 
@@ -39,10 +44,14 @@ int main(int argc, char* argv[]) {
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
 
+		paddle.UpdatePaddle(WINDOW_WIDTH, deltaTime);
+
 		paddle.Draw(renderer);
 
 		// Present the back buffer at the end of the frame
 		SDL_RenderPresent(renderer);
+
+		lastTime = currentTime;
 	}
 
 	// Cleanup

@@ -20,3 +20,32 @@ void Paddle::SetPaddle(int windowWidth, int windowHeight) {
 	position.x = (static_cast<float>(windowWidth) / 2) - (PADDLE_WIDTH / 2);
 	position.y = (static_cast<float>(windowHeight) / 1.1f) - PADDLE_HEIGHT;
 }
+
+void Paddle::UpdatePaddle(int windowWidth, float deltaTime) {
+
+	const bool* state = SDL_GetKeyboardState(NULL);
+
+	if (state[SDL_SCANCODE_A]) {
+
+		velocity = -400;
+	}
+	else if (state[SDL_SCANCODE_D]) {
+
+		velocity = 400;
+	}
+	else {
+
+		velocity = 0.0;
+	}
+
+	position.x += velocity * deltaTime;
+
+	if (position.x < 0) {
+
+		position.x = 0;
+	}
+	else if ((position.x + PADDLE_WIDTH) > windowWidth) {
+
+		position.x = windowWidth - PADDLE_WIDTH;
+	}
+}
