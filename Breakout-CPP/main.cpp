@@ -1,4 +1,3 @@
-#include <iostream>
 #include <SDL3/SDL.h>
 
 const int WINDOW_WIDTH = 600;
