@@ -25,11 +25,11 @@ void Paddle::UpdatePaddle(int windowWidth, float deltaTime) {
 
 	const bool* state = SDL_GetKeyboardState(NULL);
 
-	if (state[SDL_SCANCODE_A]) {
+	if (state[SDL_SCANCODE_A] || state[SDL_SCANCODE_LEFT]) {
 
 		velocity = -400;
 	}
-	else if (state[SDL_SCANCODE_D]) {
+	else if (state[SDL_SCANCODE_D] || state[SDL_SCANCODE_RIGHT]) {
 
 		velocity = 400;
 	}
