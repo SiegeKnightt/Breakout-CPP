@@ -1,5 +1,6 @@
 #include <SDL3/SDL.h>
 #include "paddle.h"
+#include "ball.h"
 
 const int WINDOW_WIDTH = 600;
 const int WINDOW_HEIGHT = 800;
@@ -16,6 +17,8 @@ int main(int argc, char* argv[]) {
 
 	Paddle paddle;
 	paddle.SetPaddle(WINDOW_WIDTH, WINDOW_HEIGHT);
+
+	Ball ball(Vec2((WINDOW_WIDTH / 2) - (Ball::BALL_WIDTH / 2), (WINDOW_HEIGHT / 2) - (Ball::BALL_HEIGHT / 2)), Vec2(Ball::BALL_VELOCITY_X, Ball::BALL_VELOCITY_Y));
 
 	bool running = true;
 
@@ -44,7 +47,25 @@ int main(int argc, char* argv[]) {
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
 
+		ball.UpdateBall(WINDOW_WIDTH, WINDOW_HEIGHT, deltaTime);
 		paddle.UpdatePaddle(WINDOW_WIDTH, deltaTime);
+
+		ball.Draw(renderer);
+
+		if (SDL_HasRectIntersectionFloat(&ball.rect, &paddle.rect)) {
+
+			if (ball.velocity.y > 0) {
+
+				ball.velocity.y *= -1;
+
+				float paddleCenterX = paddle.rect.x + (paddle.rect.w / 2);
+				float ballCenterX = ball.rect.x + (ball.rect.w / 2);
+
+				float relativePositionX = (ballCenterX - paddleCenterX) / (paddle.rect.w / 2);
+
+				ball.velocity.x = relativePositionX * Ball::MAX_BOUNCE_ANGLE;
+			}
+		}
 
 		paddle.Draw(renderer);
 
