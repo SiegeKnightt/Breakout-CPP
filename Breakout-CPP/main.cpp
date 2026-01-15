@@ -1,4 +1,5 @@
 #include <SDL3/SDL.h>
+#include "paddle.h"
 
 const int WINDOW_WIDTH = 600;
 const int WINDOW_HEIGHT = 800;
@@ -12,6 +13,9 @@ int main(int argc, char* argv[]) {
 
 	SDL_Window* window = SDL_CreateWindow("Breakout", WINDOW_WIDTH, WINDOW_HEIGHT, NULL);
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, NULL);
+
+	Paddle paddle;
+	paddle.SetPaddle(WINDOW_WIDTH, WINDOW_HEIGHT);
 
 	bool running = true;
 
@@ -34,6 +38,8 @@ int main(int argc, char* argv[]) {
 		// Draw the black background
 		SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
 		SDL_RenderClear(renderer);
+
+		paddle.Draw(renderer);
 
 		// Present the back buffer at the end of the frame
 		SDL_RenderPresent(renderer);
