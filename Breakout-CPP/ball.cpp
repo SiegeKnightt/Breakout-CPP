@@ -28,7 +28,7 @@ void Ball::UpdateBall(int windowWidth, int windowHeight, float deltaTime) {
 	}
 	else if ((position.x + BALL_WIDTH) > windowWidth) {
 
-		position.x = windowWidth - BALL_WIDTH;
+		position.x = static_cast<float>(windowWidth) - static_cast<float>(BALL_WIDTH);
 		velocity.x *= -1;
 	}
 
@@ -39,8 +39,8 @@ void Ball::UpdateBall(int windowWidth, int windowHeight, float deltaTime) {
 	}
 	else if ((position.y + BALL_HEIGHT) > windowHeight) {
 
-		position.x = (windowWidth / 2) - (BALL_WIDTH / 2);
-		position.y = (windowHeight / 2) - (BALL_HEIGHT / 2);
+		position.x = (static_cast<float>(windowWidth) / 2) - (static_cast<float>(BALL_WIDTH) / 2);
+		position.y = (static_cast<float>(windowHeight) / 2) - (static_cast<float>(BALL_HEIGHT) / 2);
 
 		velocity.x = 0.0;
 		velocity.y = BALL_VELOCITY_Y;

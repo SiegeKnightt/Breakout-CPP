@@ -46,6 +46,6 @@ void Paddle::UpdatePaddle(int windowWidth, float deltaTime) {
 	}
 	else if ((position.x + PADDLE_WIDTH) > windowWidth) {
 
-		position.x = windowWidth - PADDLE_WIDTH;
+		position.x = static_cast<float>(windowWidth) - static_cast<float>(PADDLE_WIDTH);
 	}
 }

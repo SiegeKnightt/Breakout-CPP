@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
 	while (running) {
 
 		uint64_t currentTime = SDL_GetTicks();
-		float deltaTime = (currentTime - lastTime) / 1000.0;
+		float deltaTime = (currentTime - lastTime) / 1000.0f;
 
 		SDL_Event event;
 
