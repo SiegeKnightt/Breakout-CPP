@@ -22,7 +22,6 @@ class Ball {
 		void UpdateBall(int windowWidth, int windowHeight, float deltaTime);
 
 		SDL_FRect rect{};
-
 };
 
 #endif
