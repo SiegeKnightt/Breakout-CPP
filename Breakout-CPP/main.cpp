@@ -2,6 +2,7 @@
 #include "paddle.h"
 #include "ball.h"
 #include "brick.h"
+#include "scene.h"
 
 const int WINDOW_WIDTH = 600;
 const int WINDOW_HEIGHT = 800;
