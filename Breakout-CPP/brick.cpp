@@ -23,6 +23,6 @@ void Brick::Draw(SDL_Renderer* renderer) {
 
 void Brick::SetBrick(int windowWidth, int windowHeight) {
 
-	position.x = windowWidth / 2;
-	position.y = windowHeight / 2;
+	position.x = static_cast<float>(windowWidth) / 2;
+	position.y = static_cast<float>(windowHeight) / 2;
 }
