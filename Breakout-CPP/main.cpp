@@ -19,8 +19,6 @@ int main(int argc, char* argv[]) {
 	Scene scene;
 	scene.LoadLevel(LEVEL1);
 	scene.SetLevel(WINDOW_WIDTH, WINDOW_HEIGHT);
-	//Brick brick(255, 0, 0, 0, 0);
-	//brick.SetBrick(WINDOW_WIDTH, WINDOW_HEIGHT);
 
 	Paddle paddle;
 	paddle.SetPaddle(WINDOW_WIDTH, WINDOW_HEIGHT);
