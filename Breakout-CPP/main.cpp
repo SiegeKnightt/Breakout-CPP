@@ -17,7 +17,7 @@ int main(int argc, char* argv[]) {
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, NULL);
 
 	Scene scene;
-	scene.LoadLevel(LEVEL1);
+	scene.LoadLevel(LEVEL_1);
 	scene.SetLevel(WINDOW_WIDTH, WINDOW_HEIGHT);
 
 	Paddle paddle;
