@@ -150,6 +150,8 @@
   <ItemGroup>
     <ClInclude Include="ball.h" />
     <ClInclude Include="brick.h" />
+    <ClInclude Include="global.h" />
+    <ClInclude Include="levels.h" />
     <ClInclude Include="paddle.h" />
     <ClInclude Include="scene.h" />
     <ClInclude Include="vec2.h" />

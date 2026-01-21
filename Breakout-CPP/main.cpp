@@ -3,9 +3,8 @@
 #include "ball.h"
 #include "brick.h"
 #include "scene.h"
-
-const int WINDOW_WIDTH = 600;
-const int WINDOW_HEIGHT = 800;
+#include "levels.h"
+#include "global.h"
 
 int main(int argc, char* argv[]) {
 
@@ -17,8 +16,11 @@ int main(int argc, char* argv[]) {
 	SDL_Window* window = SDL_CreateWindow("Breakout", WINDOW_WIDTH, WINDOW_HEIGHT, NULL);
 	SDL_Renderer* renderer = SDL_CreateRenderer(window, NULL);
 
-	Brick brick(255, 0, 0, 0, 0);
-	brick.SetBrick(WINDOW_WIDTH, WINDOW_HEIGHT);
+	Scene scene;
+	scene.LoadLevel(LEVEL1);
+	scene.SetLevel(WINDOW_WIDTH, WINDOW_HEIGHT);
+	//Brick brick(255, 0, 0, 0, 0);
+	//brick.SetBrick(WINDOW_WIDTH, WINDOW_HEIGHT);
 
 	Paddle paddle;
 	paddle.SetPaddle(WINDOW_WIDTH, WINDOW_HEIGHT);
@@ -53,7 +55,7 @@ int main(int argc, char* argv[]) {
 		SDL_RenderClear(renderer);
 
 		// Draw the bricks
-		brick.Draw(renderer);
+		scene.DrawLevel(renderer);
 
 		ball.UpdateBall(WINDOW_WIDTH, WINDOW_HEIGHT, deltaTime);
 		paddle.UpdatePaddle(WINDOW_WIDTH, deltaTime);

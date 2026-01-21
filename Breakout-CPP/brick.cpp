@@ -1,6 +1,6 @@
 #include "brick.h"
 
-Brick::Brick(int red, int green, int blue, int alpha, int health) {
+void Brick::Init(int red, int green, int blue, int alpha, int health) {
 
 	rect.w = BRICK_WIDTH;
 	rect.h = BRICK_HEIGHT;
@@ -10,6 +10,10 @@ Brick::Brick(int red, int green, int blue, int alpha, int health) {
 	b = blue;
 	a = alpha;
 	h = health;
+
+	isDestroyed = false;
+
+	position = { 0,0 };
 }
 
 void Brick::Draw(SDL_Renderer* renderer) {
@@ -21,8 +25,13 @@ void Brick::Draw(SDL_Renderer* renderer) {
 	SDL_RenderFillRect(renderer, &rect);
 }
 
-void Brick::SetBrick(int windowWidth, int windowHeight) {
+void Brick::SetBrick(int x, int y, int windowWidth) {
 
-	position.x = static_cast<float>(windowWidth) / 2;
-	position.y = static_cast<float>(windowHeight) / 2;
+	const int PADDING = 5;
+
+	float offsetX = (windowWidth - (GAME_COLS * (BRICK_WIDTH + PADDING) - PADDING)) / 2.0f;
+	float offsetY = 50.0f;
+	 
+	position.x = x * (BRICK_WIDTH + PADDING) + offsetX;
+	position.y = y * (BRICK_HEIGHT + PADDING) + offsetY;
 }

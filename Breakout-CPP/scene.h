@@ -1,6 +1,9 @@
 #ifndef SCENE_H
 #define SCENE_H
 
+#include "brick.h"
+#include "global.h"
+
 // 8 across
 // 36 down
 // 2D array 8 x 36 of bricks in "scene" class
@@ -14,6 +17,15 @@
 // Save functionality to keep progress?
 
 class Scene {
+	public:
+		int level[GAME_ROWS][GAME_COLS] = {};
+
+		Brick bricks[GAME_ROWS][GAME_COLS] = {};
+
+		Scene();
+		void LoadLevel(const int levelData[GAME_ROWS][GAME_COLS]);
+		void DrawLevel(SDL_Renderer* renderer);
+		void SetLevel(int windowWidth, int windowHeight);
 
 };
 
