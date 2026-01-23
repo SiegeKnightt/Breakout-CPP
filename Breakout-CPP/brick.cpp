@@ -25,13 +25,13 @@ void Brick::Draw(SDL_Renderer* renderer) {
 	SDL_RenderFillRect(renderer, &rect);
 }
 
-void Brick::SetBrick(int x, int y, int windowWidth) {
+void Brick::SetBrick(int col, int row, int windowWidth) {
 
 	const int PADDING = 5;
 
 	float offsetX = (windowWidth - (GAME_COLS * (BRICK_WIDTH + PADDING) - PADDING)) / 2.0f;
 	float offsetY = 50.0f;
 	 
-	position.x = x * (BRICK_WIDTH + PADDING) + offsetX;
-	position.y = y * (BRICK_HEIGHT + PADDING) + offsetY;
+	position.x = row * (BRICK_WIDTH + PADDING) + offsetX;
+	position.y = col * (BRICK_HEIGHT + PADDING) + offsetY;
 }
