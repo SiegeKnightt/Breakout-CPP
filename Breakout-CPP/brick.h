@@ -22,7 +22,7 @@ class Brick {
 
 		void Draw(SDL_Renderer* renderer);
 
-		void SetBrick(int x, int y, int windowWidth);
+		void SetBrick(int col, int row, int windowWidth);
 
 		Vec2 position;
 
