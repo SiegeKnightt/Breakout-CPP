@@ -56,7 +56,7 @@ Ball Scene::CheckForPaddleCollision(Ball ball, Paddle paddle) {
 
 		if (ball.velocity.y > 0) {
 
-			ball.velocity.y *= -1;
+			ball.velocity.y *= Ball::REBOUND_SPEED;
 
 			float paddleCenterX = paddle.rect.x + (paddle.rect.w / 2);
 			float ballCenterX = ball.rect.x + (ball.rect.w / 2);
@@ -79,7 +79,7 @@ Ball Scene::CheckForBrickCollision(Ball ball) {
 
 				if (ball.velocity.y != 0) {
 
-					ball.velocity.y *= -1;
+					ball.velocity.y *= Ball::REBOUND_SPEED;
 
 					float brickCenterX = bricks[row][col].rect.x + (bricks[row][col].rect.w / 2);
 					float ballCenterX = ball.rect.x + (ball.rect.w / 2);

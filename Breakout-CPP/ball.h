@@ -1,6 +1,7 @@
 #ifndef BALL_H
 #define BALL_H
 
+#include <iostream>
 #include <SDL3/SDL.h>
 #include "vec2.h"
 
@@ -10,8 +11,10 @@ class Ball {
 		static const int BALL_HEIGHT = 15;
 		static constexpr float BALL_VELOCITY_X = 0.0;
 		static constexpr float BALL_VELOCITY_Y = 500.0;
-		static constexpr float MAX_BOUNCE_ANGLE = 400.0;
-		static constexpr float MAX_BALL_VELOCITY = 1000.0;
+		static constexpr float MAX_BOUNCE_ANGLE = 500.0;
+		static constexpr float MAX_BALL_VELOCITY = 800.0;
+		static constexpr float MIN_BALL_VELOCITY = -800.0;
+		static constexpr float REBOUND_SPEED = -1;
 
 		Vec2 position;
 		Vec2 velocity = Vec2(BALL_VELOCITY_X, BALL_VELOCITY_Y);
