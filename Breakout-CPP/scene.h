@@ -1,6 +1,7 @@
 #ifndef SCENE_H
 #define SCENE_H
 
+#include <iostream>
 #include "brick.h"
 #include "paddle.h"
 #include "ball.h"

@@ -1,6 +1,7 @@
 #ifndef BRICK_H
 #define BRICK_H
 
+#include <iostream>
 #include <SDL3/SDL.h>
 #include "global.h"
 #include "vec2.h"

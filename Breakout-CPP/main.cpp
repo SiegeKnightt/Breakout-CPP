@@ -5,7 +5,6 @@
 #include "scene.h"
 #include "levels.h"
 #include "global.h"
-#include <iostream>
 
 int main(int argc, char* argv[]) {
 

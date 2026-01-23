@@ -1,5 +1,4 @@
 #include "brick.h"
-#include <iostream>
 
 void Brick::Init(int red, int green, int blue, int alpha, int health) {
 
@@ -51,12 +50,12 @@ void Brick::UpdateBrick() {
 
 		r = 255;
 		g = 0;
-		std::cout << "Red brick now" << std::endl;
+		std::cout << "Updated to red brick" << std::endl;
 	}
 	else if (h == 2) {
 
 		r = 255;
 		g = 255;
-		std::cout << "Yellow brick now" << std::endl;
+		std::cout << "Updated to yellow brick" << std::endl;
 	}
 }

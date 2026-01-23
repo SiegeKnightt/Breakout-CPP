@@ -1,5 +1,4 @@
 #include "scene.h"
-#include <iostream>
 
 Scene::Scene() {
 
@@ -96,15 +95,14 @@ Ball Scene::CheckForBrickCollision(Ball ball) {
 				bricks[row][col].UpdateBrick();
 				SDL_Delay(SDL_DELAY_MS);
 
-				std::cout << bricks[row][col].h << std::endl;
-				std::cout << bricks[row][col].isDestroyed << std::endl;
-				std::cout << bricks[row][col].position.x << std::endl;
-				std::cout << bricks[row][col].rect.x << std::endl;
-				std::cout << bricks[row][col].r << std::endl;
-				std::cout << bricks[row][col].g << std::endl;
-				std::cout << row << std::endl;
-				std::cout << col << std::endl;
-
+				std::cout << "Brick Row: " << row << std::endl;
+				std::cout << "Brick Column: " << col << std::endl;
+				std::cout << "Brick Health: " << bricks[row][col].h << std::endl;
+				std::cout << "Brick isDestroyed: " << bricks[row][col].isDestroyed << std::endl;
+				std::cout << "Brick PositionX: " << bricks[row][col].position.x << std::endl;
+				std::cout << "Brick PositionY: " << bricks[row][col].rect.x << std::endl;
+				std::cout << "Brick Red Value: " << bricks[row][col].r << std::endl;
+				std::cout << "Brick Green Value: " << bricks[row][col].g << std::endl << std::endl;
 			}
 		}
 	}
