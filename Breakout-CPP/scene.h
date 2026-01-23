@@ -28,7 +28,8 @@ class Scene {
 		void LoadLevel(const int levelData[GAME_ROWS][GAME_COLS]);
 		void DrawLevel(SDL_Renderer* renderer);
 		void SetLevel(int windowWidth, int windowHeight);
-		Ball CheckForCollision(Ball ball, Paddle paddle);
+		Ball CheckForPaddleCollision(Ball ball, Paddle paddle);
+		Ball CheckForBrickCollision(Ball ball);
 };
 
 #endif 

@@ -24,6 +24,8 @@ class Brick {
 
 		void SetBrick(int col, int row, int windowWidth);
 
+		void UpdateBrick();
+
 		Vec2 position;
 
 		SDL_FRect rect{};

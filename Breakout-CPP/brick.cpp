@@ -1,4 +1,5 @@
 #include "brick.h"
+#include <iostream>
 
 void Brick::Init(int red, int green, int blue, int alpha, int health) {
 
@@ -34,4 +35,28 @@ void Brick::SetBrick(int col, int row, int windowWidth) {
 	 
 	position.x = row * (BRICK_WIDTH + PADDING) + offsetX;
 	position.y = col * (BRICK_HEIGHT + PADDING) + offsetY;
+}
+
+void Brick::UpdateBrick() {
+
+	h = h - 1;
+
+	if (h == 0) {
+
+		isDestroyed = true;
+		r = 0;
+		std::cout << "Brick destroyed" << std::endl;
+	}
+	else if (h == 1) {
+
+		r = 255;
+		g = 0;
+		std::cout << "Red brick now" << std::endl;
+	}
+	else if (h == 2) {
+
+		r = 255;
+		g = 255;
+		std::cout << "Yellow brick now" << std::endl;
+	}
 }

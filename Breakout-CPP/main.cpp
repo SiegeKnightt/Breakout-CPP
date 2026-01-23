@@ -5,6 +5,7 @@
 #include "scene.h"
 #include "levels.h"
 #include "global.h"
+#include <iostream>
 
 int main(int argc, char* argv[]) {
 
@@ -30,6 +31,9 @@ int main(int argc, char* argv[]) {
 	SDL_Log("Game started...");
 
 	uint64_t lastTime = SDL_GetTicks();
+
+	bool updateScreen = true;
+	bool updateBrick = true;
 
 	while (running) {
 
@@ -59,10 +63,10 @@ int main(int argc, char* argv[]) {
 		paddle.UpdatePaddle(WINDOW_WIDTH, deltaTime);
 
 		ball.Draw(renderer);
-
-		ball = scene.CheckForCollision(ball, paddle);
-
 		paddle.Draw(renderer);
+
+		ball = scene.CheckForPaddleCollision(ball, paddle);
+		ball = scene.CheckForBrickCollision(ball);
 
 		// Present the back buffer at the end of the frame
 		SDL_RenderPresent(renderer);
