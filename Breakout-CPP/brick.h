@@ -6,10 +6,6 @@
 #include "global.h"
 #include "vec2.h"
 
-// Green = 3 health
-// Yellow = 2 health
-// Red = 1 health
-
 enum Color {
 	RED = 1,
 	YELLOW = 2,
