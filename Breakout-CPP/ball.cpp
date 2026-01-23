@@ -45,4 +45,10 @@ void Ball::UpdateBall(int windowWidth, int windowHeight, float deltaTime) {
 		velocity.x = 0.0;
 		velocity.y = BALL_VELOCITY_Y;
 	}
+
+	if (velocity.y > MAX_BALL_VELOCITY || velocity.x > MAX_BALL_VELOCITY) {
+
+		velocity.y = MAX_BALL_VELOCITY;
+		velocity.x = MAX_BALL_VELOCITY;
+	}
 }
