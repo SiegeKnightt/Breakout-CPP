@@ -9,20 +9,17 @@ void Scene::SetLevel(int windowWidth, int windowHeight) {
 	for (int row = 0; row < GAME_ROWS; row++) {
 		for (int col = 0; col < GAME_COLS; col++) {
 
-			// Red = 1
-			// Yellow = 2
-			// Green = 3
 			if (level[row][col] == 1) {
 				
-				bricks[row][col].Init(255, 0, 0, 0, 1);
+				bricks[row][col].Init(RED);
 			}
 			else if (level[row][col] == 2) {
 
-				bricks[row][col].Init(255, 255, 0, 0, 2);
+				bricks[row][col].Init(YELLOW);
 			}
 			else if (level[row][col] == 3) {
 
-				bricks[row][col].Init(0, 255, 0, 0, 3);
+				bricks[row][col].Init(GREEN);
 			}
 
 			bricks[row][col].SetBrick(row, col, windowWidth);
@@ -97,12 +94,11 @@ Ball Scene::CheckForBrickCollision(Ball ball) {
 
 				std::cout << "Brick Row: " << row << std::endl;
 				std::cout << "Brick Column: " << col << std::endl;
-				std::cout << "Brick Health: " << bricks[row][col].h << std::endl;
+				std::cout << "Brick Color: " << bricks[row][col].c << std::endl;
+				std::cout << "Brick Health: " << bricks[row][col].health << std::endl;
 				std::cout << "Brick isDestroyed: " << bricks[row][col].isDestroyed << std::endl;
 				std::cout << "Brick PositionX: " << bricks[row][col].position.x << std::endl;
 				std::cout << "Brick PositionY: " << bricks[row][col].rect.x << std::endl;
-				std::cout << "Brick Red Value: " << bricks[row][col].r << std::endl;
-				std::cout << "Brick Green Value: " << bricks[row][col].g << std::endl << std::endl;
 			}
 		}
 	}

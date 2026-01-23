@@ -1,15 +1,35 @@
 #include "brick.h"
 
-void Brick::Init(int red, int green, int blue, int alpha, int health) {
+void Brick::Init(Color color) {
 
 	rect.w = BRICK_WIDTH;
 	rect.h = BRICK_HEIGHT;
 
-	r = red;
-	g = green;
-	b = blue;
-	a = alpha;
-	h = health;
+	switch(color) {
+		case(RED):
+			r = 255;
+			g = 0;
+			b = 0;
+			a = 0;
+			health = 1;
+			break;
+		case(YELLOW):
+			r = 255;
+			g = 255;
+			b = 0;
+			a = 0;
+			health = 2;
+			break;
+		case(GREEN):
+			r = 0;
+			g = 255;
+			b = 0;
+			a = 0;
+			health = 3;
+			break;
+	}	
+
+	c = color;
 
 	isDestroyed = false;
 
@@ -38,24 +58,26 @@ void Brick::SetBrick(int col, int row, int windowWidth) {
 
 void Brick::UpdateBrick() {
 
-	h = h - 1;
+	health -= 1;
 
-	if (h == 0) {
+	if (c == RED) {
 
 		isDestroyed = true;
 		r = 0;
 		std::cout << "Brick destroyed" << std::endl;
 	}
-	else if (h == 1) {
+	else if (c == YELLOW) {
 
 		r = 255;
 		g = 0;
+		c = RED;
 		std::cout << "Updated to red brick" << std::endl;
 	}
-	else if (h == 2) {
+	else if (c == GREEN) {
 
 		r = 255;
 		g = 255;
+		c = YELLOW;
 		std::cout << "Updated to yellow brick" << std::endl;
 	}
 }
