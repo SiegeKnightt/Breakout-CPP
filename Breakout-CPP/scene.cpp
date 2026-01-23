@@ -56,6 +56,7 @@ void Scene::LoadLevel(const int levelData[GAME_ROWS][GAME_COLS]) {
 Ball Scene::CheckForCollision(Ball ball, Paddle paddle) {
 
 	if (SDL_HasRectIntersectionFloat(&ball.rect, &paddle.rect)) {
+
 		if (ball.velocity.y > 0) {
 
 			ball.velocity.y *= -1;
