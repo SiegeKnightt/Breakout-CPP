@@ -2,6 +2,8 @@
 #define SCENE_H
 
 #include "brick.h"
+#include "paddle.h"
+#include "ball.h"
 #include "global.h"
 
 // 8 across
@@ -26,7 +28,7 @@ class Scene {
 		void LoadLevel(const int levelData[GAME_ROWS][GAME_COLS]);
 		void DrawLevel(SDL_Renderer* renderer);
 		void SetLevel(int windowWidth, int windowHeight);
-
+		Ball CheckForCollision(Ball ball, Paddle paddle);
 };
 
 #endif 

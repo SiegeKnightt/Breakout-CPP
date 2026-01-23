@@ -52,3 +52,22 @@ void Scene::LoadLevel(const int levelData[GAME_ROWS][GAME_COLS]) {
 		}
 	}
 }
+
+Ball Scene::CheckForCollision(Ball ball, Paddle paddle) {
+
+	if (SDL_HasRectIntersectionFloat(&ball.rect, &paddle.rect)) {
+		if (ball.velocity.y > 0) {
+
+			ball.velocity.y *= -1;
+
+			float paddleCenterX = paddle.rect.x + (paddle.rect.w / 2);
+			float ballCenterX = ball.rect.x + (ball.rect.w / 2);
+
+			float relativePositionX = (ballCenterX - paddleCenterX) / (paddle.rect.w / 2);
+
+			ball.velocity.x = relativePositionX * Ball::MAX_BOUNCE_ANGLE;
+		}
+	}
+
+	return ball;
+}
