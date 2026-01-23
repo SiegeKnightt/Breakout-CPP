@@ -90,6 +90,8 @@ Ball Scene::CheckForBrickCollision(Ball ball) {
 				}
 
 				bricks[row][col].UpdateBrick();
+
+				// Add delay so color can change
 				SDL_Delay(SDL_DELAY_MS);
 
 				std::cout << "Brick Row: " << row << std::endl;
