@@ -63,7 +63,4 @@ void Ball::UpdateBall(int windowWidth, int windowHeight, float deltaTime) {
 
 		velocity.x = MIN_BALL_VELOCITY;
 	}
-
-	std::cout << "Velocity X: " << velocity.x << std::endl;
-	std::cout << "Velocity Y: " << velocity.y << std::endl;
 }
