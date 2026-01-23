@@ -94,7 +94,7 @@ Ball Scene::CheckForBrickCollision(Ball ball) {
 				}
 
 				bricks[row][col].UpdateBrick();
-				SDL_Delay(15);
+				SDL_Delay(SDL_DELAY_MS);
 
 				std::cout << bricks[row][col].h << std::endl;
 				std::cout << bricks[row][col].isDestroyed << std::endl;
