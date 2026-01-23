@@ -26,10 +26,15 @@ class Scene {
 		Brick bricks[GAME_ROWS][GAME_COLS] = {};
 
 		Scene();
+
 		void LoadLevel(const int levelData[GAME_ROWS][GAME_COLS]);
+
 		void DrawLevel(SDL_Renderer* renderer);
+
 		void SetLevel(int windowWidth, int windowHeight);
+
 		Ball CheckForPaddleCollision(Ball ball, Paddle paddle);
+
 		Ball CheckForBrickCollision(Ball ball);
 };
 

@@ -47,8 +47,6 @@ void Brick::Draw(SDL_Renderer* renderer) {
 
 void Brick::SetBrick(int col, int row, int windowWidth) {
 
-	const int PADDING = 5;
-
 	float offsetX = (windowWidth - (GAME_COLS * (BRICK_WIDTH + PADDING) - PADDING)) / 2.0f;
 	float offsetY = 50.0f;
 	 

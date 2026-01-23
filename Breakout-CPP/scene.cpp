@@ -54,22 +54,16 @@ Ball Scene::CheckForPaddleCollision(Ball ball, Paddle paddle) {
 
 	if (SDL_HasRectIntersectionFloat(&ball.rect, &paddle.rect)) {
 
-		if (ball.velocity.y != 0) {
+		if (ball.velocity.y > 0) {
 
-			ball.velocity.x *= -1;
 			ball.velocity.y *= -1;
 
 			float paddleCenterX = paddle.rect.x + (paddle.rect.w / 2);
 			float ballCenterX = ball.rect.x + (ball.rect.w / 2);
 
-			float paddleCenterY = paddle.rect.y + (paddle.rect.h / 2);
-			float ballCenterY = ball.rect.y + (ball.rect.h / 2);
-
 			float relativePositionX = (ballCenterX - paddleCenterX) / (paddle.rect.w / 2);
-			float relativePositionY = (ballCenterY - paddleCenterY) / (paddle.rect.h / 2);
 
 			ball.velocity.x = relativePositionX * Ball::MAX_BOUNCE_ANGLE;
-			ball.velocity.y = relativePositionY * Ball::MAX_BOUNCE_ANGLE;
 		}
 	}
 
@@ -83,22 +77,16 @@ Ball Scene::CheckForBrickCollision(Ball ball) {
 
 			if (SDL_HasRectIntersectionFloat(&ball.rect, &bricks[row][col].rect) && !bricks[row][col].isDestroyed) {
 
-				if (ball.velocity.y != 0 && ball.velocity.x != 0) {
+				if (ball.velocity.y != 0) {
 
-					ball.velocity.x *= -1;
 					ball.velocity.y *= -1;
 
 					float brickCenterX = bricks[row][col].rect.x + (bricks[row][col].rect.w / 2);
 					float ballCenterX = ball.rect.x + (ball.rect.w / 2);
 
-					float brickCenterY = bricks[row][col].rect.y + (bricks[row][col].rect.h / 2);
-					float ballCenterY = ball.rect.y + (ball.rect.h / 2);
-
 					float relativePositionX = (ballCenterX - brickCenterX) / (bricks[row][col].rect.w / 2);
-					float relativePositionY = (ballCenterY - brickCenterY) / (bricks[row][col].rect.h / 2);
 
 					ball.velocity.x = relativePositionX * Ball::MAX_BOUNCE_ANGLE;
-					ball.velocity.y = relativePositionY * Ball::MAX_BOUNCE_ANGLE;
 				}
 
 				bricks[row][col].UpdateBrick();

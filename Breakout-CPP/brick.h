@@ -24,6 +24,7 @@ class Brick {
 		int health;
 		static const int BRICK_WIDTH = 75;
 		static const int BRICK_HEIGHT = 25;
+		static const int PADDING = 10;
 
 		bool isDestroyed = false;
 
