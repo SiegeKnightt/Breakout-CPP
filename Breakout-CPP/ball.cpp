@@ -24,18 +24,18 @@ void Ball::UpdateBall(int windowWidth, int windowHeight, float deltaTime) {
 	if (position.x < 0) {
 
 		position.x = 0;
-		velocity.x *= -1;
+		velocity.x *= REBOUND_SPEED;
 	}
 	else if ((position.x + BALL_WIDTH) > windowWidth) {
 
 		position.x = static_cast<float>(windowWidth) - static_cast<float>(BALL_WIDTH);
-		velocity.x *= -1;
+		velocity.x *= REBOUND_SPEED;
 	}
 
 	if (position.y < 0) {
 
 		position.y = 0;
-		velocity.y *= -1;
+		velocity.y *= REBOUND_SPEED;
 	}
 	else if ((position.y + BALL_HEIGHT) > windowHeight) {
 
@@ -44,5 +44,23 @@ void Ball::UpdateBall(int windowWidth, int windowHeight, float deltaTime) {
 
 		velocity.x = 0.0;
 		velocity.y = BALL_VELOCITY_Y;
+	}
+
+	if (velocity.y > MAX_BALL_VELOCITY) {
+
+		velocity.y = MAX_BALL_VELOCITY;
+	}
+	else if (velocity.y < MIN_BALL_VELOCITY) {
+
+		velocity.y = MIN_BALL_VELOCITY;
+	}
+	
+	if (velocity.x > MAX_BALL_VELOCITY) {
+
+		velocity.x = MAX_BALL_VELOCITY;
+	}
+	else if (velocity.x < MIN_BALL_VELOCITY) {
+
+		velocity.x = MIN_BALL_VELOCITY;
 	}
 }

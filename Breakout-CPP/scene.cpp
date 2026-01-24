@@ -1,5 +1,4 @@
 #include "scene.h"
-#include <iostream>
 
 Scene::Scene() {
 
@@ -10,20 +9,17 @@ void Scene::SetLevel(int windowWidth, int windowHeight) {
 	for (int row = 0; row < GAME_ROWS; row++) {
 		for (int col = 0; col < GAME_COLS; col++) {
 
-			// Red = 1
-			// Yellow = 2
-			// Green = 3
 			if (level[row][col] == 1) {
 				
-				bricks[row][col].Init(255, 0, 0, 0, 1);
+				bricks[row][col].Init(RED);
 			}
 			else if (level[row][col] == 2) {
 
-				bricks[row][col].Init(255, 255, 0, 0, 2);
+				bricks[row][col].Init(YELLOW);
 			}
 			else if (level[row][col] == 3) {
 
-				bricks[row][col].Init(0, 255, 0, 0, 3);
+				bricks[row][col].Init(GREEN);
 			}
 
 			bricks[row][col].SetBrick(row, col, windowWidth);
@@ -60,7 +56,7 @@ Ball Scene::CheckForPaddleCollision(Ball ball, Paddle paddle) {
 
 		if (ball.velocity.y > 0) {
 
-			ball.velocity.y *= -1;
+			ball.velocity.y *= Ball::REBOUND_SPEED;
 
 			float paddleCenterX = paddle.rect.x + (paddle.rect.w / 2);
 			float ballCenterX = ball.rect.x + (ball.rect.w / 2);
@@ -83,7 +79,7 @@ Ball Scene::CheckForBrickCollision(Ball ball) {
 
 				if (ball.velocity.y != 0) {
 
-					ball.velocity.y *= -1;
+					ball.velocity.y *= Ball::REBOUND_SPEED;
 
 					float brickCenterX = bricks[row][col].rect.x + (bricks[row][col].rect.w / 2);
 					float ballCenterX = ball.rect.x + (ball.rect.w / 2);
@@ -94,17 +90,17 @@ Ball Scene::CheckForBrickCollision(Ball ball) {
 				}
 
 				bricks[row][col].UpdateBrick();
+
+				// Add delay so color can change
 				SDL_Delay(SDL_DELAY_MS);
 
-				std::cout << bricks[row][col].h << std::endl;
-				std::cout << bricks[row][col].isDestroyed << std::endl;
-				std::cout << bricks[row][col].position.x << std::endl;
-				std::cout << bricks[row][col].rect.x << std::endl;
-				std::cout << bricks[row][col].r << std::endl;
-				std::cout << bricks[row][col].g << std::endl;
-				std::cout << row << std::endl;
-				std::cout << col << std::endl;
-
+				std::cout << "Brick Row: " << row << std::endl;
+				std::cout << "Brick Column: " << col << std::endl;
+				std::cout << "Brick Color: " << bricks[row][col].c << std::endl;
+				std::cout << "Brick Health: " << bricks[row][col].health << std::endl;
+				std::cout << "Brick isDestroyed: " << bricks[row][col].isDestroyed << std::endl;
+				std::cout << "Brick PositionX: " << bricks[row][col].position.x << std::endl;
+				std::cout << "Brick PositionY: " << bricks[row][col].rect.x << std::endl;
 			}
 		}
 	}
