@@ -5,7 +5,17 @@ void Brick::Init(Color color) {
 	rect.w = BRICK_WIDTH;
 	rect.h = BRICK_HEIGHT;
 
+	isDestroyed = false;
+
 	switch(color) {
+		case(BLANK):
+			r = 0;
+			g = 0;
+			b = 0;
+			a = 0;
+			health = 0;
+			isDestroyed = true;
+			break;
 		case(RED):
 			r = 255;
 			g = 0;
@@ -30,8 +40,6 @@ void Brick::Init(Color color) {
 	}	
 
 	c = color;
-
-	isDestroyed = false;
 
 	position = { 0,0 };
 }
@@ -62,6 +70,7 @@ void Brick::UpdateBrick() {
 
 		isDestroyed = true;
 		r = 0;
+		c = BLANK;
 		std::cout << "Brick destroyed" << std::endl;
 	}
 	else if (c == YELLOW) {

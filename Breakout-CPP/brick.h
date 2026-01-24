@@ -7,6 +7,7 @@
 #include "vec2.h"
 
 enum Color {
+	BLANK = 0,
 	RED = 1,
 	YELLOW = 2,
 	GREEN = 3
@@ -14,7 +15,7 @@ enum Color {
 
 class Brick {
 	private:
-		int r, g, b, a;
+		int r, g, b, a = 0;
 	public:
 		Color c;
 		int health;

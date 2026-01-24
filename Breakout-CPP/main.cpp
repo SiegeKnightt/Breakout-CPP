@@ -26,15 +26,13 @@ int main(int argc, char* argv[]) {
 	Ball ball(Vec2((WINDOW_WIDTH / 2) - (Ball::BALL_WIDTH / 2), (WINDOW_HEIGHT / 2) - (Ball::BALL_HEIGHT / 2)), Vec2(Ball::BALL_VELOCITY_X, Ball::BALL_VELOCITY_Y));
 
 	bool running = true;
+	bool win = false;
 
 	SDL_Log("Game started...");
 
 	uint64_t lastTime = SDL_GetTicks();
 
-	bool updateScreen = true;
-	bool updateBrick = true;
-
-	while (running) {
+	while (running && !win) {
 
 		uint64_t currentTime = SDL_GetTicks();
 		float deltaTime = (currentTime - lastTime) / 1000.0f;
@@ -66,6 +64,8 @@ int main(int argc, char* argv[]) {
 
 		ball = scene.CheckForPaddleCollision(ball, paddle);
 		ball = scene.CheckForBrickCollision(ball);
+
+		win = scene.CheckForWin();
 
 		// Present the back buffer at the end of the frame
 		SDL_RenderPresent(renderer);

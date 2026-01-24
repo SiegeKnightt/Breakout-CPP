@@ -14,7 +14,7 @@ class Ball {
 		static constexpr float MAX_BOUNCE_ANGLE = 360.0;
 		static constexpr float MAX_BALL_VELOCITY = 800.0;
 		static constexpr float MIN_BALL_VELOCITY = -800.0;
-		static constexpr float REBOUND_SPEED = -1.01;
+		static constexpr float REBOUND_SPEED = -1.01f;
 
 		Vec2 position;
 		Vec2 velocity = Vec2(BALL_VELOCITY_X, BALL_VELOCITY_Y);

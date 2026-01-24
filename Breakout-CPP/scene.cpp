@@ -9,7 +9,11 @@ void Scene::SetLevel(int windowWidth, int windowHeight) {
 	for (int row = 0; row < GAME_ROWS; row++) {
 		for (int col = 0; col < GAME_COLS; col++) {
 
-			if (level[row][col] == 1) {
+			if (level[row][col] == 0) {
+
+				bricks[row][col].Init(BLANK);
+			}
+			else if (level[row][col] == 1) {
 				
 				bricks[row][col].Init(RED);
 			}
@@ -32,7 +36,7 @@ void Scene::DrawLevel(SDL_Renderer* renderer) {
 	for (int row = 0; row < GAME_ROWS; row++) {
 		for (int col = 0; col < GAME_COLS; col++) {
 
-			if (level[row][col] != 0) {
+			if (bricks[row][col].c != BLANK) {
 
 				bricks[row][col].Draw(renderer);
 			}
@@ -106,4 +110,19 @@ Ball Scene::CheckForBrickCollision(Ball ball) {
 	}
 
 	return ball;
+}
+
+bool Scene::CheckForWin() {
+
+	for (int row = 0; row < GAME_ROWS; row++) {
+		for (int col = 0; col < GAME_COLS; col++) {
+
+			if (!bricks[row][col].isDestroyed) {
+
+				return false;
+			}
+		}
+	}
+
+	return true;
 }

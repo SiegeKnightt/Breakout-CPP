@@ -21,6 +21,8 @@ class Scene {
 
 		void SetLevel(int windowWidth, int windowHeight);
 
+		bool CheckForWin();
+
 		Ball CheckForPaddleCollision(Ball ball, Paddle paddle);
 
 		Ball CheckForBrickCollision(Ball ball);
