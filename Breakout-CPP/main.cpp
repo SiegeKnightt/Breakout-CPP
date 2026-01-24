@@ -29,10 +29,11 @@ int main(int argc, char* argv[]) {
 	bool win = false;
 
 	SDL_Log("Game started...");
+	SDL_Log("You have %d lives!", ball.PLAYER_LIVES);
 
 	uint64_t lastTime = SDL_GetTicks();
 
-	while (running && !win) {
+	while (running && !win && ball.PLAYER_LIVES > 0) {
 
 		uint64_t currentTime = SDL_GetTicks();
 		float deltaTime = (currentTime - lastTime) / 1000.0f;
@@ -72,6 +73,8 @@ int main(int argc, char* argv[]) {
 
 		lastTime = currentTime;
 	}
+
+	SDL_Log("GAME OVER");
 
 	// Cleanup
 	SDL_DestroyRenderer(renderer);

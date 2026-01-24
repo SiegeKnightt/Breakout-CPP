@@ -1,6 +1,5 @@
 #include "ball.h"
 
-
 Ball::Ball(Vec2 position, Vec2 velocity) : position(position), velocity(velocity) {
 
 	rect.w = BALL_WIDTH;
@@ -44,6 +43,10 @@ void Ball::UpdateBall(int windowWidth, int windowHeight, float deltaTime) {
 
 		velocity.x = 0.0;
 		velocity.y = BALL_VELOCITY_Y;
+		
+		PLAYER_LIVES -= 1;
+
+		SDL_Log("Lives decreased to %d!", PLAYER_LIVES);
 	}
 
 	if (velocity.y > MAX_BALL_VELOCITY) {

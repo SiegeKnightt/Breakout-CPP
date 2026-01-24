@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <SDL3/SDL.h>
+#include "global.h"
 #include "vec2.h"
 
 class Ball {
@@ -15,6 +16,8 @@ class Ball {
 		static constexpr float MAX_BALL_VELOCITY = 800.0;
 		static constexpr float MIN_BALL_VELOCITY = -800.0;
 		static constexpr float REBOUND_SPEED = -1.01f;
+
+		int PLAYER_LIVES = 3;
 
 		Vec2 position;
 		Vec2 velocity = Vec2(BALL_VELOCITY_X, BALL_VELOCITY_Y);
