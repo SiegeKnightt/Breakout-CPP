@@ -13,15 +13,15 @@ class Paddle {
 
 		Paddle();
 
+		Vec2 position;
+
+		SDL_FRect rect{};
+
 		void Draw(SDL_Renderer* renderer);
 
 		void SetPaddle(int windowWidth, int windowHeight);
 
 		void UpdatePaddle(int windowWidth, float deltaTime);
-
-		Vec2 position;
-
-		SDL_FRect rect{};
 };
 
 #endif

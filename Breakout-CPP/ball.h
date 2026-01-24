@@ -22,13 +22,13 @@ class Ball {
 		Vec2 position;
 		Vec2 velocity = Vec2(BALL_VELOCITY_X, BALL_VELOCITY_Y);
 
+		SDL_FRect rect{};
+
 		Ball(Vec2 position, Vec2 velocity);
 
 		void Draw(SDL_Renderer* renderer);
 
 		void UpdateBall(int windowWidth, int windowHeight, float deltaTime);
-
-		SDL_FRect rect{};
 };
 
 #endif

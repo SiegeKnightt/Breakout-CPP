@@ -17,13 +17,15 @@ class Brick {
 	private:
 		int r, g, b, a = 0;
 	public:
-		Color c;
-		int health;
 		static const int BRICK_WIDTH = 75;
 		static const int BRICK_HEIGHT = 25;
 		static const int PADDING = 10;
 
+		int health;
+
 		bool isDestroyed = false;
+
+		Color c;
 
 		void Init(Color color);
 
