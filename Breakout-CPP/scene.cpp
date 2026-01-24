@@ -95,16 +95,16 @@ Ball Scene::CheckForBrickCollision(Ball ball) {
 
 				bricks[row][col].UpdateBrick();
 
+				SDL_Log("Brick Row: %d", row);
+				SDL_Log("Brick Column: %d", col);
+				SDL_Log("Brick Color: %d", bricks[row][col].c);
+				SDL_Log("Brick Health: %d", bricks[row][col].health);
+				SDL_Log("Brick isDestroyed: %d", bricks[row][col].isDestroyed);
+				SDL_Log("Brick PositionX: %4.2f", bricks[row][col].position.x);
+				SDL_Log("Brick PositionY: %4.2f\n\n", bricks[row][col].rect.x);
+
 				// Add delay so color can change
 				SDL_Delay(SDL_DELAY_MS);
-
-				std::cout << "Brick Row: " << row << std::endl;
-				std::cout << "Brick Column: " << col << std::endl;
-				std::cout << "Brick Color: " << bricks[row][col].c << std::endl;
-				std::cout << "Brick Health: " << bricks[row][col].health << std::endl;
-				std::cout << "Brick isDestroyed: " << bricks[row][col].isDestroyed << std::endl;
-				std::cout << "Brick PositionX: " << bricks[row][col].position.x << std::endl;
-				std::cout << "Brick PositionY: " << bricks[row][col].rect.x << std::endl;
 			}
 		}
 	}

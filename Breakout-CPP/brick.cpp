@@ -71,20 +71,22 @@ void Brick::UpdateBrick() {
 		isDestroyed = true;
 		r = 0;
 		c = BLANK;
-		std::cout << "Brick destroyed" << std::endl;
+		SDL_Log("Brick destroyed!");
 	}
 	else if (c == YELLOW) {
 
 		r = 255;
 		g = 0;
 		c = RED;
-		std::cout << "Updated to red brick" << std::endl;
+		SDL_Log("Updated to red brick!");
 	}
 	else if (c == GREEN) {
 
 		r = 255;
 		g = 255;
 		c = YELLOW;
-		std::cout << "Updated to yellow brick" << std::endl;
+		SDL_Log("Updated to yellow brick!");
 	}
+
+	SDL_Log("Updated values: ");
 }

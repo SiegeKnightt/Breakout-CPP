@@ -29,7 +29,7 @@ int main(int argc, char* argv[]) {
 	bool win = false;
 
 	SDL_Log("Game started...");
-	SDL_Log("You have %d lives!", ball.PLAYER_LIVES);
+	SDL_Log("You have %d lives!\n\n", ball.PLAYER_LIVES);
 
 	uint64_t lastTime = SDL_GetTicks();
 

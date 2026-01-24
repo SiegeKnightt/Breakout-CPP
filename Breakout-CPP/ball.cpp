@@ -46,7 +46,7 @@ void Ball::UpdateBall(int windowWidth, int windowHeight, float deltaTime) {
 		
 		PLAYER_LIVES -= 1;
 
-		SDL_Log("Lives decreased to %d!", PLAYER_LIVES);
+		SDL_Log("Lives decreased to %d!\n\n", PLAYER_LIVES);
 	}
 
 	if (velocity.y > MAX_BALL_VELOCITY) {

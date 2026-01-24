@@ -1,7 +1,6 @@
 #ifndef BALL_H
 #define BALL_H
 
-#include <iostream>
 #include <SDL3/SDL.h>
 #include "global.h"
 #include "vec2.h"
